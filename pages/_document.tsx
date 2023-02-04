@@ -10,7 +10,7 @@ class MyDocument extends Document {
             name='description'
             content='Generate code or convert code to another programming language in seconds.'
           />
-          <meta property='og:site_name' content='codegenie.vercel.app' />
+          <meta property='og:site_name' content='https://codegenie-roan.vercel.app/' />
           <meta
             property='og:description'
             content='Convert code to another programming language and code generator.'
