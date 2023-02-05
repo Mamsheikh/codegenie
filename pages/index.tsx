@@ -10,6 +10,7 @@ import { FallingLines } from 'react-loader-spinner';
 import toast from 'react-hot-toast';
 import Head from 'next/head';
 import { FiCopy, FiLoader } from 'react-icons/fi';
+import { AiOutlineGithub } from 'react-icons/ai';
 import { HiNoSymbol, HiOutlineNoSymbol } from 'react-icons/hi2';
 
 const Home: NextPage = () => {
