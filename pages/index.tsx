@@ -1,7 +1,6 @@
 import type { NextPage } from 'next';
 import React, { useState } from 'react';
 import Image from 'next/image';
-// import { CopyToClipboard } from 'react-copy-to-clipboard';
 import CodeMirror from '@uiw/react-codemirror';
 import { javascript } from '@codemirror/lang-javascript';
 import { python } from '@codemirror/lang-python';
@@ -9,9 +8,9 @@ import { dracula } from '@uiw/codemirror-theme-dracula';
 import DropDown, { LanguageType } from './components/Dropdown';
 import { FallingLines } from 'react-loader-spinner';
 import toast from 'react-hot-toast';
+import Head from 'next/head';
 import { FiCopy, FiLoader } from 'react-icons/fi';
 import { HiNoSymbol, HiOutlineNoSymbol } from 'react-icons/hi2';
-// import { ClipboardIcon, PauseCircleIcon } from '@heroicons/react/24/outline';
 
 const Home: NextPage = () => {
   const [result, setResult] = useState('');
@@ -22,10 +21,11 @@ const Home: NextPage = () => {
 
   console.log('result ', result);
 
-  const prompt = `convert this code to ${language} and comments where necessary ${input}`;
+
+  const prompt = `convert this code  ${input} to ${language}`;
   input.slice(-1) === '.' ? '' : '.';
 
-  const generateBio = async (e: any) => {
+  const generateCode = async (e: any) => {
     e.preventDefault();
     setGeneratedBios('');
     setLoading(true);
@@ -67,27 +67,29 @@ const Home: NextPage = () => {
 
   return (
     <>
+      <Head>
+        <title>Codegenie Generator</title>
+        <link rel='icon' href='/favicon.ico' />
+      </Head>
       <div className='bg-gray-900 h-screen'>
         <header className='bg-gray-900 flex py-2 px-1 md:p-2 sticky top-0 z-50'>
           <h1 className='flex-grow font-bold flex items-center text-gray-300 md:mr-2'>
             <div className='mx-2'>
-              {/* <Image
-              src={Logo}
-              alt='Tailwind-to-CSS logo'
-              height={24}
-              width={24}
-            /> */}
+           
             </div>
             <span className='hidden md:flex'>CodeGenie</span>
           </h1>
 
           <section className='space-x-1 md:space-x-2 flex items-center'>
-            {/* <GitHubButton
-              type="stargazers"
-              namespace="Devzstudio"
-              repo="tailwind_to_css"
-              className="sm:mr-2"
-            /> */}
+            <a
+              className='flex items-center bg-gray-100 rounded-full px-2 py-1 w-full'
+              href='https://github.com/Mamsheikh/codegenie'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              <AiOutlineGithub className='h-5 w-5 ' />{' '}
+              <span className='text-xs text-gray-900 ml-1'>Star on Github</span>
+            </a>
 
             <DropDown
               language={language}
@@ -96,10 +98,9 @@ const Home: NextPage = () => {
             {/* {!loading && ( */}
             <button
               className='flex items-center bg-blue-500 hover:bg-blue-600 rounded text-white px-2.5 py-2'
-              onClick={(e) => generateBio(e)}
+              onClick={(e) => generateCode(e)}
             >
-              {/* <PlayIcon className="w-6 h-6 text-gray-100 md:mr-1" /> */}
-              {/* <span className='hidden md:flex'> */}
+             
               {!loading ? (
                 'Convert'
               ) : (
@@ -112,17 +113,10 @@ const Home: NextPage = () => {
                   // ariaLabel='falling-lines-loading'
                 />
               )}
-              {/* </span> */}
+           
             </button>
 
-            {/* {loading && (
-            <button
-              className='bg-black rounded-xl text-white font-medium px-4 py-2 sm:mt-10 mt-8 hover:bg-black/80 w-full'
-              disabled
-            >
-              <LoadingDots color='white' style='large' />
-            </button>
-          )} */}
+           
           </section>
         </header>
 
