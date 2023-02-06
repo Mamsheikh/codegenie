@@ -136,7 +136,7 @@ const Home: NextPage = () => {
               className='w-full h-full'
               //   value="console.log('hello world!');"
               // height='480px'
-              placeholder='Type or paste some code...'
+              placeholder='Type or paste some code or ask eg How do I make an HTTP request in Javascript?'
               spellCheck={false}
               theme={dracula}
               extensions={[javascript({ jsx: true }), python()]}
