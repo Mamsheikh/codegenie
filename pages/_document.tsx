@@ -15,6 +15,7 @@ class MyDocument extends Document {
             property='og:description'
             content='Convert code to another programming language and code generator.'
           />
+          <meta name="google-site-verification" content="I-NwiapDcZa0ZgpEwPg_CGOywwN4R_oHOjtg9GFyvgg" />
           <meta property='og:title' content='Codegenie' />
           <meta name='twitter:card' content='summary_large_image' />
           <meta name='twitter:title' content='Codegenie' />
